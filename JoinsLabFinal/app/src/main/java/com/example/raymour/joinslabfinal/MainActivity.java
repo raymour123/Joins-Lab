@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 listView = (ListView) findViewById(R.id.list_view);
-                DatabaseHelper helper = DatabaseHelper.getINTSTANCE(MainActivity.this);
+                DatabaseHelper helper = DatabaseHelper.getInstance(MainActivity.this);
 
                 SimpleCursorAdapter adapter = new SimpleCursorAdapter(view.getContext(), android.R.layout.simple_list_item_1, helper.companyBoston(),
                         new String[]{DatabaseHelper.COL_COMPANY}, new int[] {android.R.id.text1},
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 textView = (TextView) findViewById(R.id.textView);
-                DatabaseHelper helper = DatabaseHelper.getINTSTANCE(MainActivity.this);
+                DatabaseHelper helper = DatabaseHelper.getInstance(MainActivity.this);
                 Cursor cursor = helper.higestSalary();
                 if (cursor.moveToFirst()) {
                     textView.setText("Company with highest Salary: " + cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_COMPANY)));
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 listView = (ListView) findViewById(R.id.list_view);
-                DatabaseHelper helper = DatabaseHelper.getINTSTANCE(MainActivity.this);
+                DatabaseHelper helper = DatabaseHelper.getInstance(MainActivity.this);
                 Cursor cursor = helper.getSameCompany();
 
                 CursorAdapter adapter = new CursorAdapter(MainActivity.this, cursor, CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER) {
@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
                 final View dialogView = LayoutInflater.from(MainActivity.this).inflate(R.layout.newemployeelayout, null);
                 builder.setView(dialogView);
                 builder.setTitle("Enter Employee Info");
-                final Employee newEmployee = new Employee(null,null,null,null,null);
+                final Employee newEmployee = new Employee();
                 final EditText ssn = (EditText) dialogView.findViewById(R.id.edit_Ssn);
                 final EditText firstName = (EditText) dialogView.findViewById(R.id.edit_firstName);
                 final EditText lastName = (EditText) dialogView.findViewById(R.id.edit_lastName);
@@ -148,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
                             newEmployee.setLastName(lastName.getText().toString());
                             newEmployee.setYearOfBirth(birthYear.getText().toString());
                             newEmployee.setHomeCity(city.getText().toString());
-                            DatabaseHelper.getINTSTANCE(view.getContext()).insertRowEmployee(newEmployee);
+                            DatabaseHelper.getInstance(view.getContext()).insertRowEmployee(newEmployee);
                             Toast.makeText(MainActivity.this, "New Employee has been added to the Database.", Toast.LENGTH_SHORT).show();
                             dialog.dismiss();
                         }
@@ -182,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addData(){
-        DatabaseHelper helper = DatabaseHelper.getINTSTANCE(MainActivity.this);
+        DatabaseHelper helper = DatabaseHelper.getInstance(MainActivity.this);
         helper.emptyTable();
 
         helper.insertRowEmployee(new Employee("John","Smith","123-04-5678","1973","NY"));

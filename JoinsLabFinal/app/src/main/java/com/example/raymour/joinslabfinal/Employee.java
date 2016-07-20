@@ -10,6 +10,8 @@ public class Employee {
     private String yearOfBirth;
     private String homeCity;
 
+    public Employee() {}
+
 
     public Employee(String ssn, String firstName, String lastName, String yearOfBirth, String homeCity) {
         this.ssn = ssn;

@@ -13,32 +13,35 @@
     tools:showIn="@layout/activity_main">
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ADD DATA"
-        android:id="@+id/buttonAddData"
-        />
+        android:id="@+id/buttonAddData" />
+
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="EMPLOYEES WORKING AT SAME COMPANY"
         android:id="@+id/buttonSameCompany"/>
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="COMPANIES IN BOSTON"
         android:id="@+id/buttonBoston"/>
+
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="COMPANY WITH HIGHEST SALARY"
         android:id="@+id/buttonSalary"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView"
-        android:text="Text View"/>
+        android:layout_margin="6dp"
+        android:textSize="17sp"
+        android:id="@+id/textView"/>
 
     <ListView
         android:layout_width="match_parent"
