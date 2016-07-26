@@ -19,8 +19,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_ID = "_id";
     public static final String COL_FIRST_NAME = "firstName";
     public static final String COL_LAST_NAME = "lastName";
-    public static final String COL_YEAR_BIRTH = "year of birth";
-    public static final String COL_CITY = "home city";
+    public static final String COL_YEAR_BIRTH = "year_of_birth";
+    public static final String COL_CITY = "home_city";
 
     public static final String JOB_TABLE_NAME = "job";
     public static final String COL_SSN_JOB = "ssn_JOB";
@@ -51,7 +51,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 COL_FIRST_NAME + " TEXT, " +
                 COL_LAST_NAME + " TEXT, " +
                 COL_YEAR_BIRTH + " TEXT, " +
-                COL_CITY + " TEXT)");
+                COL_CITY + " TEXT )");
 
         sqLiteDatabase.execSQL("CREATE TABLE " +
                 JOB_TABLE_NAME + " (" +
